@@ -4,13 +4,24 @@ using ll = long long;
 
 void solve()
 {
-    int n;
-    cin >> n;
+   int g,c,l;
+   cin>>g>>c>>l;
+   vector<int>v={g,c,l};
+   sort(v.begin(),v.end());
 
-    if (n & 1)
-        cout << "Yes" << endl;
-    else
-        cout << "No" << endl;
+   int maxi=max({g,c,l});
+   int mini=min({g,c,l});
+
+
+
+   if(maxi-mini>=10){
+    cout <<"check again"<<endl;
+    
+   }else{
+    cout <<"final ";
+    cout <<v[1]<<endl;
+   }
+
 }
 
 int main()
@@ -21,10 +32,7 @@ int main()
     freopen("error.txt", "w", stderr);
 #endif
 
-    int t;
-    cin >> t;
-
-    while (t--)
+   
         solve();
 
     return 0;
