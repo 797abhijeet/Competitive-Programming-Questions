@@ -1,39 +1,48 @@
 #include <bits/stdc++.h>
 using namespace std;
-using ll = long long;
 
-void solve()
-{
-   int g,c,l;
-   cin>>g>>c>>l;
-   vector<int>v={g,c,l};
-   sort(v.begin(),v.end());
+void solve() {
+    int n, k, x;
+    cin >> n >> k >> x;
 
-   int maxi=max({g,c,l});
-   int mini=min({g,c,l});
-
-
-
-   if(maxi-mini>=10){
-    cout <<"check again"<<endl;
-    
-   }else{
-    cout <<"final ";
-    cout <<v[1]<<endl;
-   }
-
-}
-
-int main()
-{
-#ifndef ONLINE_JUDGE
-    freopen("input.txt", "r", stdin);
-    freopen("output.txt", "w", stdout);
-    freopen("error.txt", "w", stderr);
-#endif
+    if (x != 1) {
+        cout << "YES\n";
+        cout << n << "\n";
+        for (int i = 0; i < n; i++) cout << 1 << " ";
+        cout << "\n";
+        return;
+    }
 
    
-        solve();
+    if (k == 1) {
+        cout << "NO\n";
+        return;
+    }
 
-    return 0;
+    if (n % 2 == 0) {
+        cout << "YES\n";
+        cout << n / 2 << "\n";
+        for (int i = 0; i < n / 2; i++) cout << 2 << " ";
+        cout << "\n";
+        return;
+    }
+
+    // n is odd
+    if (k >= 3) {
+        cout << "YES\n";
+        cout << (n - 3) / 2 + 1 << "\n";
+        for (int i = 0; i < (n - 3) / 2; i++) cout << 2 << " ";
+        cout << 3 << "\n";
+    } else {
+        cout << "NO\n";
+    }
+}
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    int t;
+    cin >> t;
+    while (t--) solve();
 }

@@ -1,1 +1,11 @@
-check again
+YES
+10
+1 1 1 1 1 1 1 1 1 1 
+NO
+Yes
+2
+2 2 
+YES
+7
+1 1 1 1 1 1 1 
+NO
