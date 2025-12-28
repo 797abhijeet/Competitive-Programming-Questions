@@ -4,13 +4,40 @@ using ll = long long;
 
 void solve()
 {
-    string s;
-    cin >> s;
+    int n;
+    cin >> n;
+    vector<int> v(n);
+    for (int i = 0; i < v.size(); i++)
+    {
+        cin >> v[i];
+    }
+    // cout << "debug1" << endl;
+    sort(v.begin(), v.end());
+    if (v[0] == v[n - 1])
+    {
+        cout << "NO" << endl;
+        return ;
+    }
+    cout << "YES" << endl;
+    int j = v.size() - 1;
+    int i = 0;
+    vector<int> ans;
 
-    int size = s.size();
-    int first = s[0] - '0';
-
-    cout << (size - 1) * 9 + first << endl;
+    while (i < j)
+    {
+        // cout <<"HI"<<endl;
+        ans.push_back(v[j--]);
+        ans.push_back(v[i++]);
+    }
+    if(n&1)
+    {
+        ans.push_back(v[i]);
+    }
+    for (auto it : ans)
+    {
+        cout << it << " ";
+    }
+    cout << endl;
 }
 
 int main()
