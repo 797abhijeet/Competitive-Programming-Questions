@@ -4,49 +4,13 @@ using ll = long long;
 
 void solve()
 {
+    string s;
+    cin >> s;
 
-    // table 
-    // 0 0 0 
-    // 1 0 1 
-    // 0 1 1 
-    // 1 1 0
+    int size = s.size();
+    int first = s[0] - '0';
 
-
-
-    int n;
-    cin >> n;
-    vector<int> v(n);
-    for (int i = 0; i < n; i++)
-    {
-        cin >> v[i];
-    }
-
-    if (n % 2 == 0)
-    {
-        int x = 0;
-        for (auto it : v)
-        {
-            x ^= it;
-        }
-        if (x == 0)
-        {
-            cout << 1 << endl;
-        }
-        else
-        {
-            cout << -1 << endl;
-        }
-    }
-    else
-    {
-        int x = 0;
-        for (auto it : v)
-        {
-            D
-                x ^= it;
-        }
-        cout << x << endl;
-    }
+    cout << (size - 1) * 9 + first << endl;
 }
 
 int main()
