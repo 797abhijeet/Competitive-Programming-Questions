@@ -4,24 +4,37 @@ using ll = long long;
 
 void solve()
 {
-    long long a, b, n;
-    cin >> a >> b >> n;
-    vector<long long> v(n);
+    int a, b;
+    cin >> a >> b;
+    int k1, k2;
+    cin >> k1 >> k2;
+    int q1, q2;
+    cin >> q1 >> q2;
 
-    for (long long i = 0; i < n; i++)
+    int dx[] = {-1, 1, -1, 1};
+    int dy[] = {-1, -1, 1, 1};
+
+    set<pair<int, int>> sk, sq;
+
+    for (int i = 0; i < 4; i++)
+
     {
-        cin >> v[i];
+        sk.insert({k1 + dx[i] * a, k2 + dy[i] * b});
+        sk.insert({k1 + dx[i] * b, k2 + dy[i] * a});
+
+        sq.insert({q1 + dx[i] * a, q2 + dy[i] * b});
+        sq.insert({q1 + dx[i] * b, q2 + dy[i] * a});
     }
-    sort(v.begin(), v.end());
 
-    long long sum = b;
-
-    for (auto it : v)
+    int ans = 0;
+    for (auto it : sk)
     {
-        sum += min(it, a - 1);
-        //    cout <<sum<<endl;
+        if (sq.find(it) != sq.end())
+        {
+            ans++;
+        }
     }
-    cout << sum << endl;
+    cout << ans << endl;
 }
 
 int main()
