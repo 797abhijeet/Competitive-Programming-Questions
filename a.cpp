@@ -4,40 +4,24 @@ using ll = long long;
 
 void solve()
 {
-    int n;
-    cin >> n;
-    vector<int> v(n);
-    for (int i = 0; i < v.size(); i++)
+    long long a, b, n;
+    cin >> a >> b >> n;
+    vector<long long> v(n);
+
+    for (long long i = 0; i < n; i++)
     {
         cin >> v[i];
     }
-    // cout << "debug1" << endl;
     sort(v.begin(), v.end());
-    if (v[0] == v[n - 1])
-    {
-        cout << "NO" << endl;
-        return ;
-    }
-    cout << "YES" << endl;
-    int j = v.size() - 1;
-    int i = 0;
-    vector<int> ans;
 
-    while (i < j)
+    long long sum = b;
+
+    for (auto it : v)
     {
-        // cout <<"HI"<<endl;
-        ans.push_back(v[j--]);
-        ans.push_back(v[i++]);
+        sum += min(it, a - 1);
+        //    cout <<sum<<endl;
     }
-    if(n&1)
-    {
-        ans.push_back(v[i]);
-    }
-    for (auto it : ans)
-    {
-        cout << it << " ";
-    }
-    cout << endl;
+    cout << sum << endl;
 }
 
 int main()
